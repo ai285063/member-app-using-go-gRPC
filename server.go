@@ -15,7 +15,7 @@ type server struct {
 	memberApp.UnimplementedCRUDServer
 }
 
-func (s *server) GetUsers(ctx context.Context, in *memberApp.GetUsersRequest) (*memberApp.GetUsersResponse, error) {
+func (s *server) GetUsers(ctx context.Context, req *memberApp.GetUsersRequest) (*memberApp.GetUsersResponse, error) {
 	var users []*memberApp.User
 	if err := MysqlDB.Table("users").Find(&users).Error; err != nil {
 		panic(err)
