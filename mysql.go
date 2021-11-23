@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
-
+	pb "github.com/ai285063/member_app_gRPC/proto/memberApp"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	// pb "memberApp_gRPC/proto/memberApp"
@@ -33,7 +33,7 @@ func ConnectMysql() {
 		log.Println("MySQL connected.")
 	}
 
-	if err := MysqlDB.AutoMigrate(new(User)); err != nil {
+	if err := MysqlDB.AutoMigrate(new(pb.User)); err != nil {
 		panic("MySql create table failed: " + err.Error())
 	}
 }
