@@ -4,6 +4,7 @@ import (
 	"context"
 	"log"
 	"net"
+
 	pb "github.com/ai285063/member_app_gRPC/proto/memberApp"
 	grpc "google.golang.org/grpc"
 )
@@ -23,6 +24,9 @@ func (s *server) GetUsers(ctx context.Context, in *pb.GetUsersRequest) (*pb.GetU
 }
 
 func main() {
+	ConnectMysql()
+	ConnectRedis()
+
 	lis, err := net.Listen("tcp", port)
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)

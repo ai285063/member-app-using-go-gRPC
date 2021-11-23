@@ -19,15 +19,15 @@ services:
             REDIS_DATABASE: 0
         container_name: redis
 
-    app:
-        build:
-            context: .
-            dockerfile: Dockerfile
-        depends_on:
-            - mysql
-            - redis
-        ports:
-            - 8080:8080
-        restart: always
-        container_name: app
+    # app:
+    #     build:
+    #         context: .
+    #         dockerfile: Dockerfile
+    #     depends_on:
+    #         - mysql
+    #         - redis
+    #     ports:
+    #         - 8080:8080
+    #     restart: always
+    #     container_name: app
 
